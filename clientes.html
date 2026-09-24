@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ConectaHub - Clientes</title>
+</head>
+
+<body>
+
+<header>
+
+    <h1>ConectaHub</h1>
+
+    <nav>
+
+        <a href="gerente.html">Dashboard</a>
+        <a href="clientes.html">Clientes</a>
+        <a href="consorcios.html">Consórcios</a>
+        <a href="atendimentos.html">Atendimentos</a>
+        <a href="documentos-gerente.html">Documentos</a>
+        <a href="kanban.html">Kanban</a>
+        <a href="auditoria.html">Auditoria</a>
+
+    </nav>
+
+</header>
+
+<main>
+
+    <h2>Gestão de Clientes</h2>
+
+    <form>
+
+        <label for="pesquisa">
+            Pesquisar cliente
+        </label>
+
+        <input
+            type="search"
+            id="pesquisa"
+            placeholder="Nome, CPF ou e-mail"
+        >
+
+        <button type="submit">
+            Pesquisar
+        </button>
+
+    </form>
+
+    <section>
+
+        <table border="1">
+
+            <thead>
+
+                <tr>
+
+                    <th>Cliente</th>
+                    <th>E-mail</th>
+                    <th>Consórcios</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td>João da Silva</td>
+                    <td>joao@email.com</td>
+                    <td>2</td>
+                    <td>Ativo</td>
+
+                    <td>
+                        <a href="#">Visualizar</a>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Maria Oliveira</td>
+                    <td>maria@email.com</td>
+                    <td>1</td>
+                    <td>Ativo</td>
+
+                    <td>
+                        <a href="#">Visualizar</a>
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Carlos Souza</td>
+                    <td>carlos@email.com</td>
+                    <td>2</td>
+                    <td>Ativo</td>
+
+                    <td>
+                        <a href="#">Visualizar</a>
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+</main>
+<script src="script.js"></script>
+</body>
+
+</html>

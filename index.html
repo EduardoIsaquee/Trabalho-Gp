@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ConectaHub - Login</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>ConectaHub</h1>
+        <p>Gestão inteligente de consórcios</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Entrar</h2>
+
+<form>
+
+    <label for="email">E-mail</label>
+    <input
+        type="email"
+        id="email"
+        placeholder="Digite seu e-mail"
+        required
+    >
+
+    <label for="senha">Senha</label>
+    <input
+        type="password"
+        id="senha"
+        placeholder="Digite sua senha"
+        required
+    >
+
+    <label for="perfil">Perfil</label>
+
+    <select id="perfil" required>
+        <option value="">Selecione</option>
+        <option value="cliente">Cliente</option>
+        <option value="gerente">Gerente</option>
+    </select>
+
+    <button type="submit" class="btn">
+        Entrar
+    </button>
+
+</form>
+
+            <p>
+                <a href="#">Esqueci minha senha</a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>ConectaHub &copy; 2026</p>
+        <a href="#">Política de Privacidade</a>
+        |
+        <a href="#">Termos de Uso</a>
+    </footer>
+<script src="script.js"></script>
+</body>
+
+</html>
