@@ -20,7 +20,7 @@
         <section>
             <h2>Entrar</h2>
 
-            <form id="loginForm" novalidate>
+            <form id="loginForm">
 
                 <label for="email">E-mail</label>
                 <input
@@ -28,7 +28,6 @@
                     id="email"
                     name="email"
                     placeholder="Digite seu e-mail"
-                    autocomplete="email"
                     required
                 >
 
@@ -38,12 +37,10 @@
                     id="senha"
                     name="senha"
                     placeholder="Digite sua senha"
-                    autocomplete="current-password"
                     required
                 >
 
                 <label for="perfil">Perfil</label>
-
                 <select id="perfil" name="perfil" required>
                     <option value="">Selecione</option>
                     <option value="cliente">Cliente</option>
@@ -70,6 +67,104 @@
         |
         <a href="#">Termos de Uso</a>
     </footer>
+
+    <script>
+        // ============================================
+        // LOGIN FUNCIONAL
+        // ============================================
+
+        const usuariosDemo = {
+            "cliente@conectahub.com|123456|cliente": {
+                email: "cliente@conectahub.com",
+                senha: "123456",
+                nome: "João da Silva",
+                perfil: "cliente",
+                contemplado: false,
+                progresso: 40
+            },
+            "contemplado@conectahub.com|123456|cliente": {
+                email: "contemplado@conectahub.com",
+                senha: "123456",
+                nome: "Carlos Henrique",
+                perfil: "cliente",
+                contemplado: true,
+                progresso: 100
+            },
+            "gerente@conectahub.com|123456|gerente": {
+                email: "gerente@conectahub.com",
+                senha: "123456",
+                nome: "Maria Oliveira",
+                perfil: "gerente",
+                contemplado: false
+            }
+        };
+
+        document.getElementById("loginForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value.trim().toLowerCase();
+            const senha = document.getElementById("senha").value.trim();
+            const perfil = document.getElementById("perfil").value.trim();
+
+            // Remove mensagem antiga
+            const msgAntiga = document.querySelector(".msg-erro, .msg-sucesso");
+            if (msgAntiga) msgAntiga.remove();
+
+            // Valida se campos estão preenchidos
+            if (!email || !senha || !perfil) {
+                mostrarMensagem("Por favor, preencha todos os campos.", "erro");
+                return;
+            }
+
+            // Busca o usuário
+            const chave = email + "|" + senha + "|" + perfil;
+            const usuario = usuariosDemo[chave];
+
+            if (!usuario) {
+                mostrarMensagem("E-mail, senha ou perfil incorreto.", "erro");
+                return;
+            }
+
+            // Salva na sessão
+            localStorage.setItem("conectaHubUsuario", JSON.stringify(usuario));
+
+            // Mostra sucesso
+            mostrarMensagem("Login realizado! Entrando no ConectaHub...", "sucesso");
+
+            // Redireciona
+            setTimeout(function() {
+                if (perfil === "cliente") {
+                    window.location.href = "cliente.html";
+                } else if (perfil === "gerente") {
+                    window.location.href = "gerente.html";
+                }
+            }, 800);
+        });
+
+        function mostrarMensagem(texto, tipo) {
+            const msg = document.createElement("div");
+            msg.className = "msg-" + tipo;
+            msg.textContent = texto;
+            msg.style.padding = "12px 16px";
+            msg.style.marginTop = "15px";
+            msg.style.borderRadius = "10px";
+            msg.style.fontWeight = "600";
+            msg.style.fontSize = "14px";
+
+            if (tipo === "erro") {
+                msg.style.background = "#ffe4e4";
+                msg.style.color = "#a40000";
+                msg.style.border = "1px solid #ff9999";
+            } else if (tipo === "sucesso") {
+                msg.style.background = "#e5f7d2";
+                msg.style.color = "#245d19";
+                msg.style.border = "1px solid #90ee90";
+            }
+
+            document.getElementById("loginForm").appendChild(msg);
+        }
+    </script>
+
     <script src="script.js"></script>
 </body>
 
